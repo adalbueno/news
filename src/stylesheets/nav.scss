@@ -1,0 +1,55 @@
+.nav {
+    text-align: center; 
+    font-size: $nav-font-size;
+    color: $nav-font-color;
+
+    &__item {
+        display: block;
+        padding: $nav-padding;
+        border-left: $nav-border-size solid $nav-bg-color;
+        cursor: pointer;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+        transition: all .2s;
+
+        &:after {
+            content: '';
+            background: $main-bg-color;
+            position: absolute;
+            top: 50%;
+            width: 8px;
+            height: 8px;
+            transform: translateX(50%) translateY(-50%) rotate(45deg);
+            right: -100%;
+            transition: all .2s;
+        }
+
+        &:hover {
+            background: $nav-hover-bg-color;
+        }
+
+        &.router-link-active {
+            border-left-color: $nav-active-bg-color;
+
+            &:after {
+                right: 0;
+            }
+        }
+    }
+
+    &__icon {
+        display: block;
+        margin-bottom: $nav-border-size;
+        font-size: $nav-icon-size;
+        color: $nav-icon-color;
+    }
+
+    &__text {
+        color: $nav-font-color;
+
+        .active & {
+            color: $nav-font-color;
+        }
+    }
+}
